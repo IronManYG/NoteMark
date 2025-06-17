@@ -56,7 +56,7 @@
 While this is a single-module project, the folder structure is inspired by a clean, modular approach:
 
 ```
-scribbledash/
+notemark/
 ├── app/
 ├── core/
 │   ├── data/            // Shared data logic or repositories
