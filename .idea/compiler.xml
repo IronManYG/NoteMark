@@ -27,6 +27,7 @@
       <module name="NoteMark.feature.notes.domain" target="11" />
       <module name="NoteMark.feature.notes.domain.main" target="11" />
       <module name="NoteMark.feature.notes.domain.test" target="11" />
+      <module name="NoteMark.feature.notes.network" target="22" />
       <module name="NoteMark.feature.notes.presentation" target="22" />
     </bytecodeTargetLevel>
   </component>
