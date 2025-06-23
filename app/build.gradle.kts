@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.notemark.android.application)
+    alias(libs.plugins.notemark.android.application.compose)
 }
 
 android {
