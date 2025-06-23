@@ -34,5 +34,9 @@ gradlePlugin {
             id = "notemark.android.feature.ui"
             implementationClass = "AndroidFeatureUiConventionPlugin"
         }
+        register("androidRoom") {
+            id = "notemark.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
     }
 }
