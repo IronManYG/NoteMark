@@ -8,9 +8,9 @@
       <module name="NoteMark.auth.domain.main" target="11" />
       <module name="NoteMark.auth.domain.test" target="11" />
       <module name="NoteMark.auth.presentation" target="22" />
-      <module name="NoteMark.build-logic.convention" target="11" />
-      <module name="NoteMark.build-logic.convention.main" target="11" />
-      <module name="NoteMark.build-logic.convention.test" target="11" />
+      <module name="NoteMark.build-logic.convention" target="22" />
+      <module name="NoteMark.build-logic.convention.main" target="22" />
+      <module name="NoteMark.build-logic.convention.test" target="22" />
       <module name="NoteMark.core.data" target="22" />
       <module name="NoteMark.core.database" target="22" />
       <module name="NoteMark.core.domain" target="17" />
