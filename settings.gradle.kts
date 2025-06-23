@@ -20,6 +20,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "NoteMark"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":build-logic:convention")
 include(":core:data")
