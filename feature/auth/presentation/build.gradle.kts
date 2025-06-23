@@ -33,6 +33,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.timber)
+    implementation(projects.core.domain)
+    implementation(projects.feature.auth.domain)
 }
