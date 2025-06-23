@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="NoteMark.app" target="22" />
+      <module name="NoteMark.auth.data" target="22" />
+      <module name="NoteMark.auth.domain" target="11" />
+      <module name="NoteMark.auth.domain.main" target="11" />
+      <module name="NoteMark.auth.domain.test" target="11" />
+      <module name="NoteMark.auth.presentation" target="22" />
+      <module name="NoteMark.build-logic.convention" target="11" />
+      <module name="NoteMark.build-logic.convention.main" target="11" />
+      <module name="NoteMark.build-logic.convention.test" target="11" />
+      <module name="NoteMark.core.data" target="22" />
+      <module name="NoteMark.core.database" target="22" />
+      <module name="NoteMark.core.domain" target="11" />
+      <module name="NoteMark.core.domain.main" target="11" />
+      <module name="NoteMark.core.domain.test" target="11" />
+      <module name="NoteMark.core.presentation.designsystem" target="22" />
+      <module name="NoteMark.core.presentation.ui" target="22" />
+      <module name="NoteMark.feature.auth.data" target="22" />
+      <module name="NoteMark.feature.auth.domain" target="11" />
+      <module name="NoteMark.feature.auth.domain.main" target="11" />
+      <module name="NoteMark.feature.auth.domain.test" target="11" />
+      <module name="NoteMark.feature.auth.presentation" target="22" />
+      <module name="NoteMark.feature.notes.data" target="22" />
+      <module name="NoteMark.feature.notes.domain" target="11" />
+      <module name="NoteMark.feature.notes.domain.main" target="11" />
+      <module name="NoteMark.feature.notes.domain.test" target="11" />
+      <module name="NoteMark.feature.notes.presentation" target="22" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
