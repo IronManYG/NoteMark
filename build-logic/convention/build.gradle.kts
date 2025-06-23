@@ -22,5 +22,9 @@ gradlePlugin {
             id = "notemark.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("androidLibrary") {
+            id = "notemark.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
     }
 }
