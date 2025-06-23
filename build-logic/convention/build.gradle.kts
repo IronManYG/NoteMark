@@ -38,5 +38,9 @@ gradlePlugin {
             id = "notemark.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = "notemark.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 }
