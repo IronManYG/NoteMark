@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -20,5 +21,17 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "NoteMark"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
- 
+include(":core:data")
+include(":core:database")
+include(":core:domain")
+include(":core:presentation:ui")
+include(":core:presentation:designsystem")
+include(":feature:auth:data")
+include(":feature:auth:domain")
+include(":feature:auth:presentation")
+include(":feature:notes:data")
+include(":feature:notes:domain")
+include(":feature:notes:presentation")
+include(":feature:notes:network")
