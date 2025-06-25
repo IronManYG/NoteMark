@@ -1,7 +1,7 @@
 [versions]
 # Android
 agp = "8.10.1"
-androidTools = "31.10.1"
+androidTools = "31.11.0"
 desugar_jdk_libs = "2.1.5"
 
 # AndroidX
@@ -25,11 +25,11 @@ coilCompose = "2.6.0"
 adaptive = "1.1.0"
 
 # Kotlin
-kotlin = "2.1.10"
+kotlin = "2.1.21"
 org-jetbrains-kotlin-jvm = "2.1.10"
-ksp = "2.1.10-1.0.31"
-coroutines = "1.10.1"
-kotlinx-serialization = "1.8.0"
+ksp = "2.1.21-2.0.2"
+coroutines = "1.10.2"
+kotlinx-serialization = "1.8.1"
 
 # Networking
 ktor = "3.1.1"
