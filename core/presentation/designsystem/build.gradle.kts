@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.notemark.android.library.compose)
 }
@@ -16,4 +17,5 @@ dependencies {
     implementation(libs.lottie)
     debugImplementation(libs.androidx.compose.ui.tooling)
     api(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material3.adaptive)
 }
