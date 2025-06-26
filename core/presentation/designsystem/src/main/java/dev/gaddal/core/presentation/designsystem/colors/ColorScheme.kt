@@ -20,10 +20,6 @@ val AppColorScheme = lightColorScheme(
     onSurfaceVariant = AppColors.OnSurfaceVariant,
     surfaceTint = AppColors.Primary,
 
-    /* Background */
-    background = AppColors.Surface,
-    onBackground = AppColors.OnSurface,
-
     /* Error */
     error = AppColors.Error,
     onError = AppColors.OnPrimary,

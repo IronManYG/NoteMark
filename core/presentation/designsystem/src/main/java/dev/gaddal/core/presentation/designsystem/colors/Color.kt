@@ -25,6 +25,9 @@ object AppColors {
     /** 12 % tint of OnPrimary – pressed/dragged ripple on Primary. */
     val OnPrimary12 = OnPrimary.copy(alpha = 0.12f)
 
+    /* ─── Background ──────────────────────────────────────────── */
+
+    val LandingBackground = Color(0xFFE0EAFF)
 
     /* ─── Surfaces ──────────────────────────────────────────── */
 
