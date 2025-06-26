@@ -47,34 +47,29 @@ enum class DeviceConfiguration {
          * @param windowSizeClass The size classification of the window provided by the system
          * @return The corresponding [DeviceConfiguration] for the given window size
          */
-        fun fromWindowSizeClass(windowSizeClass: WindowSizeClass): DeviceConfiguration {
-            val widthClass = windowSizeClass.windowWidthSizeClass
-            val heightClass = windowSizeClass.windowHeightSizeClass
+        fun fromWindowSizeClass(windowSizeClass: WindowSizeClass): DeviceConfiguration =
+            when (windowSizeClass.windowWidthSizeClass) {
+                // ---------------- Phones ----------------
+                WindowWidthSizeClass.COMPACT -> MOBILE_PORTRAIT
 
-            return when {
-                // TABLET CONFIGURATIONS
-                // Tablet Portrait: Medium width with expanded height
-                widthClass == WindowWidthSizeClass.MEDIUM &&
-                        heightClass == WindowHeightSizeClass.EXPANDED -> TABLET_PORTRAIT
+                WindowWidthSizeClass.MEDIUM -> when (windowSizeClass.windowHeightSizeClass) {
+                    WindowHeightSizeClass.COMPACT,
+                    WindowHeightSizeClass.MEDIUM -> MOBILE_LANDSCAPE
 
-                // Tablet Landscape: Expanded width with medium or compact height
-                widthClass == WindowWidthSizeClass.EXPANDED &&
-                        (heightClass == WindowHeightSizeClass.MEDIUM ||
-                                heightClass == WindowHeightSizeClass.COMPACT) -> TABLET_LANDSCAPE
+                    else -> TABLET_PORTRAIT          // safety-net for EXPANDED or future values
+                }
 
-                // MOBILE CONFIGURATIONS
-                // Mobile Portrait: Compact width with expanded height
-                widthClass == WindowWidthSizeClass.COMPACT &&
-                        heightClass == WindowHeightSizeClass.EXPANDED -> MOBILE_PORTRAIT
+                // ---------------- Tablets & larger -------
+                WindowWidthSizeClass.EXPANDED -> when (windowSizeClass.windowHeightSizeClass) {
+                    WindowHeightSizeClass.EXPANDED -> TABLET_PORTRAIT
+                    WindowHeightSizeClass.MEDIUM,
+                    WindowHeightSizeClass.COMPACT -> TABLET_LANDSCAPE
 
-                // Mobile Landscape: Medium or expanded width with compact height
-                (widthClass == WindowWidthSizeClass.MEDIUM ||
-                        widthClass == WindowWidthSizeClass.EXPANDED) &&
-                        heightClass == WindowHeightSizeClass.COMPACT -> MOBILE_LANDSCAPE
+                    else -> TABLET_LANDSCAPE         // fallback for any new value
+                }
 
-                // Fallback: Use desktop configuration for any other combination
+                // Anything unrecognised (desktop mode, large monitor, etc.)
                 else -> DESKTOP
             }
-        }
     }
 }
