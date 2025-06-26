@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="landing_header_title">Your Own Collection of Notes</string>
+    <string name="landing_header_subtitle">Capture your thoughts and ideas.</string>
+    <string name="get_started">Get Started</string>
+    <string name="log_in">Log In</string>
+</resources>

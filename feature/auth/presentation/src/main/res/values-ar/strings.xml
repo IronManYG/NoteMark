@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="landing_header_title">مجموعتك الخاصة من الملاحظات</string>
+    <string name="landing_header_subtitle">سجل أفكارك وآراءك.</string>
+    <string name="get_started">ابدأ</string>
+    <string name="log_in">تسجيل الدخول</string>
+</resources>
