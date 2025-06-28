@@ -1,6 +1,6 @@
 [versions]
 # Android
-agp = "8.10.1"
+agp = "8.11.0"
 androidTools = "31.11.0"
 desugar_jdk_libs = "2.1.5"
 
@@ -21,32 +21,32 @@ work = "2.10.2"
 activityCompose = "1.10.1"
 composeBom = "2025.06.01"
 composeCompiler = "1.5.9"
-coilCompose = "2.6.0"
+coilCompose = "2.7.0"
 adaptive = "1.1.0"
 
 # Kotlin
-kotlin = "2.1.21"
-org-jetbrains-kotlin-jvm = "2.1.10"
-ksp = "2.1.21-2.0.2"
+kotlin = "2.2.0"
+org-jetbrains-kotlin-jvm = "2.2.0"
+ksp = "2.2.0-2.0.2"
 coroutines = "1.10.2"
 kotlinx-serialization = "1.8.1"
 
 # Networking
-ktor = "3.1.1"
-ktorClientLogging = "2.3.8"
+ktor = "3.2.0"
+ktorClientLogging = "3.2.0"
 
 # Dependency Injection
-koin = "4.0.4"
+koin = "4.1.0"
 
 # Persistence
 room = "2.7.2"
 
 # Logging & Debugging
 timber = "5.0.1"
-leakcanary = "2.12"
+leakcanary = "2.14"
 
 # UI & Animations
-lottie = "6.1.0"
+lottie = "6.6.7"
 
 # Testing
 junit = "4.13.2"
@@ -54,7 +54,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 
 # Security
-argon2 = "2.11"
+argon2 = "2.12"
 
 # Project versions
 projectApplicationId = "dev.gaddal.notemark"
