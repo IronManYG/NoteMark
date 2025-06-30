@@ -6,10 +6,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
@@ -40,6 +44,8 @@ fun RegisterFormSection(
     onPasswordVisibilityChange: () -> Unit = {},
     onConfirmPasswordVisibilityChange: () -> Unit = {}
 ) {
+    val focusManager = LocalFocusManager.current
+
     Column(
         modifier = modifier
     ) {
@@ -52,8 +58,10 @@ fun RegisterFormSection(
             modifier = Modifier.fillMaxWidth(),
             isError = usernameSupportingText != null,
             supportingText = usernameSupportingText,
-            isPasswordVisible = false,
-            onPasswordVisibilityChange = {}
+            keyboardType = KeyboardType.Text,
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+            )
         )
         Spacer(modifier = Modifier.height(16.dp))
         NoteMarkTextField(
@@ -65,8 +73,10 @@ fun RegisterFormSection(
             modifier = Modifier.fillMaxWidth(),
             isError = emailSupportingText != null,
             supportingText = emailSupportingText,
-            isPasswordVisible = false,
-            onPasswordVisibilityChange = {}
+            keyboardType = KeyboardType.Email,
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+            )
         )
         Spacer(modifier = Modifier.height(16.dp))
         NoteMarkTextField(
@@ -79,7 +89,11 @@ fun RegisterFormSection(
             isError = passwordSupportingText != null,
             supportingText = passwordSupportingText,
             isPasswordVisible = isPasswordVisible,
-            onPasswordVisibilityChange = { onPasswordVisibilityChange() }
+            onPasswordVisibilityChange = { onPasswordVisibilityChange() },
+            keyboardType = KeyboardType.Password,
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+            )
         )
         Spacer(modifier = Modifier.height(16.dp))
         NoteMarkTextField(
@@ -92,7 +106,18 @@ fun RegisterFormSection(
             isError = confirmPasswordSupportingText != null,
             supportingText = confirmPasswordSupportingText,
             isPasswordVisible = isConfirmPasswordVisible,
-            onPasswordVisibilityChange = { onConfirmPasswordVisibilityChange() }
+            onPasswordVisibilityChange = { onConfirmPasswordVisibilityChange() },
+            keyboardType = KeyboardType.Password,
+            keyboardActions = KeyboardActions(
+                onDone = {
+                    focusManager.clearFocus()
+                    if (usernameText.isNotBlank() && emailText.isNotBlank() &&
+                        passwordText.isNotBlank() && confirmPasswordText.isNotBlank()
+                    ) {
+                        onCreateAccountClick()
+                    }
+                }
+            )
         )
         Spacer(modifier = Modifier.height(24.dp))
         NoteMarkFilledButton(

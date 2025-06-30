@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -17,6 +19,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,7 +39,9 @@ fun NoteMarkTextField(
     isError: Boolean = false,
     supportingText: String? = null,
     isPasswordVisible: Boolean = false,
-    onPasswordVisibilityChange: (Boolean) -> Unit = {}
+    onPasswordVisibilityChange: (Boolean) -> Unit = {},
+    keyboardType: KeyboardType = KeyboardType.Text,
+    keyboardActions: KeyboardActions = KeyboardActions(),
 ) {
     Column(
         modifier = modifier
@@ -71,6 +77,21 @@ fun NoteMarkTextField(
             textStyle = MaterialTheme.typography.bodyLarge,
             shape = RoundedCornerShape(10.dp),
             isError = isError,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = keyboardType,
+                imeAction = keyboardActions.let { actions ->
+                    when {
+                        actions.onNext != null -> ImeAction.Next
+                        actions.onDone != null -> ImeAction.Done
+                        actions.onGo != null -> ImeAction.Go
+                        actions.onSend != null -> ImeAction.Send
+                        actions.onSearch != null -> ImeAction.Search
+                        else -> ImeAction.Default
+                    }
+                }
+            ),
+            keyboardActions = keyboardActions,
+            singleLine = true,
             trailingIcon = {
                 if (isInputSecret) {
                     IconButton(
