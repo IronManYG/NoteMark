@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
-import dev.gaddal.feature.auth.presentation.landing.LandingRoot
+import dev.gaddal.notemark.navigation.NavigationRoot
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NoteMarkTheme {
-                LandingRoot() // only for test, later nav will implement
+                NavigationRoot()
             }
         }
     }
