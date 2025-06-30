@@ -51,4 +51,12 @@ object AppColors {
 
     /** Error / destructive actions – #E1294B */
     val Error = Color(0xFFE1294B)
+
+    /* ─── Gradients ───────────────────────────────────────── */
+
+    /** Gradient for the background of the app. */
+    val BGGradient = listOf(
+        Color(0xFF58A1F8),
+        Color(0xFF5A4CF7)
+    )
 }

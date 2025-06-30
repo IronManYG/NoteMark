@@ -15,10 +15,14 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun NoteMarkScaffold(
     modifier: Modifier = Modifier,
+    withGradient: Boolean = false,
     topAppBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     floatingActionButton: @Composable () -> Unit = {},
+    floatingActionButtonPosition: FabPosition = FabPosition.End,
     containerColor: Color = MaterialTheme.colorScheme.background,
+    gradientColors: List<Color>? = null,
+    hasToolbar: Boolean = true,
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     progressBarState: ProgressBarState = ProgressBarState.Idle,
     content: @Composable (PaddingValues) -> Unit
@@ -27,19 +31,40 @@ fun NoteMarkScaffold(
         topBar = topAppBar,
         bottomBar = bottomBar,
         floatingActionButton = floatingActionButton,
-        floatingActionButtonPosition = FabPosition.End,
+        floatingActionButtonPosition = floatingActionButtonPosition,
         containerColor = containerColor,
         contentWindowInsets = contentWindowInsets,
         modifier = modifier
     ) { padding ->
-        Box(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            content(padding)
+        val contentWrapper: @Composable () -> Unit = {
+            Box(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                content(padding)
 
-            if (progressBarState is ProgressBarState.Loading) {
-                CircularIndeterminateProgressBar()
+                if (progressBarState is ProgressBarState.Loading) {
+                    CircularIndeterminateProgressBar()
+                }
             }
+        }
+
+        if (withGradient) {
+            if (gradientColors != null) {
+                GradientBackground(
+                    gradientColors = gradientColors,
+                    hasToolbar = hasToolbar
+                ) {
+                    contentWrapper()
+                }
+            } else {
+                GradientBackground(
+                    hasToolbar = hasToolbar
+                ) {
+                    contentWrapper()
+                }
+            }
+        } else {
+            contentWrapper()
         }
     }
 }
