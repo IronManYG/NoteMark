@@ -16,12 +16,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
 import dev.gaddal.core.presentation.designsystem.components.NoteMarkScaffold
 import dev.gaddal.core.presentation.ui.PhonePreviewLandscape
+import dev.gaddal.feature.auth.presentation.R
+import dev.gaddal.feature.auth.presentation.components.HeaderSection
 import dev.gaddal.feature.auth.presentation.login.LoginAction
 import dev.gaddal.feature.auth.presentation.login.LoginState
 
@@ -49,8 +53,11 @@ fun LoginMobileLandscapeLayout(
             .consumeWindowInsets(WindowInsets.navigationBars),
         horizontalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-        LoginHeaderSection(
-            modifier = Modifier.weight(1f)
+        HeaderSection(
+            modifier = Modifier.weight(1f),
+            title = stringResource(id = R.string.login_header_title),
+            subtitle = stringResource(id = R.string.login_header_subtitle),
+            alignment = Alignment.CenterHorizontally
         )
         LoginFormSection(
             emailText = state.email,

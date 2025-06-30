@@ -18,10 +18,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
 import dev.gaddal.core.presentation.designsystem.components.NoteMarkScaffold
 import dev.gaddal.core.presentation.ui.LargeScreenPreview
+import dev.gaddal.feature.auth.presentation.R
+import dev.gaddal.feature.auth.presentation.components.HeaderSection
 import dev.gaddal.feature.auth.presentation.login.LoginAction
 import dev.gaddal.feature.auth.presentation.login.LoginState
 
@@ -50,8 +53,10 @@ fun LoginTabletOrDesktopLayout(
         verticalArrangement = Arrangement.spacedBy(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LoginHeaderSection(
+        HeaderSection(
             modifier = Modifier.widthIn(max = 540.dp),
+            title = stringResource(id = R.string.login_header_title),
+            subtitle = stringResource(id = R.string.login_header_subtitle),
             alignment = Alignment.CenterHorizontally
         )
         LoginFormSection(
