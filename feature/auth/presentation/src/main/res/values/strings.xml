@@ -11,4 +11,12 @@
     <string name="dont_have_account">Don\'t have an account?</string>
     <string name="login_header_title">Log In</string>
     <string name="login_header_subtitle">Capture your thoughts and ideas.</string>
+    <string name="register_header_title">Create account</string>
+    <string name="register_header_subtitle">Capture your thoughts and ideas.</string>
+    <string name="username">Username</string>
+    <string name="username_hint" translatable="false">John.doe</string>
+    <string name="confirm_password">Repeat password</string>
+    <string name="confirm_password_hint">Repeat password</string>
+    <string name="create_account">Create account</string>
+    <string name="already_have_account">Already have an account?</string>
 </resources>
