@@ -4,4 +4,10 @@
     <string name="landing_header_subtitle">سجل أفكارك وآراءك.</string>
     <string name="get_started">ابدأ</string>
     <string name="log_in">تسجيل الدخول</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="password_hint">كلمة المرور</string>
+    <string name="dont_have_account">ليس لديك حساب؟</string>
+    <string name="login_header_title">تسجيل الدخول</string>
+    <string name="login_header_subtitle">سجل أفكارك وآراءك.</string>
 </resources>

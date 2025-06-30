@@ -31,6 +31,7 @@ fun NoteMarkFilledButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: ImageVector? = null,
     isIconEnd: Boolean = false,
     containerColor: Color = MaterialTheme.colorScheme.primary,
@@ -42,6 +43,7 @@ fun NoteMarkFilledButton(
     Button(
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         shape = buttonShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,

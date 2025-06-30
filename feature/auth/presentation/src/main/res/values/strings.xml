@@ -4,4 +4,11 @@
     <string name="landing_header_subtitle">Capture your thoughts and ideas.</string>
     <string name="get_started">Get Started</string>
     <string name="log_in">Log In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="email_hint" translatable="false">john.doe@example.com</string>
+    <string name="password_hint">Password</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="login_header_title">Log In</string>
+    <string name="login_header_subtitle">Capture your thoughts and ideas.</string>
 </resources>
