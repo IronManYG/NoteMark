@@ -27,7 +27,7 @@ import dev.gaddal.feature.auth.presentation.R
 import dev.gaddal.feature.auth.presentation.landing.LandingAction
 
 @Composable
-fun MobilePortraitLayout(
+fun LandingMobilePortraitLayout(
     modifier: Modifier = Modifier,
     onAction: (LandingAction) -> Unit
 ) {
@@ -71,7 +71,7 @@ fun MobilePortraitLayoutPreview() {
             containerColor = AppColors.LandingBackground,
             contentWindowInsets = WindowInsets.statusBars
         ) { innerPadding ->
-            MobilePortraitLayout(
+            LandingMobilePortraitLayout(
                 onAction = {}
             )
         }

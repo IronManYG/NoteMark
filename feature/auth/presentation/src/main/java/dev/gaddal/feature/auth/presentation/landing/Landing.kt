@@ -6,35 +6,34 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
 import dev.gaddal.core.presentation.designsystem.colors.AppColors
 import dev.gaddal.core.presentation.designsystem.components.NoteMarkScaffold
 import dev.gaddal.core.presentation.designsystem.util.DeviceConfiguration
 import dev.gaddal.core.presentation.ui.DevicesPreview
 import dev.gaddal.core.presentation.ui.LocalesPreview
-import dev.gaddal.feature.auth.presentation.landing.components.MobileLandscapeLayout
-import dev.gaddal.feature.auth.presentation.landing.components.MobilePortraitLayout
-import dev.gaddal.feature.auth.presentation.landing.components.TabletOrDesktopLayout
+import dev.gaddal.feature.auth.presentation.landing.components.LandingMobileLandscapeLayout
+import dev.gaddal.feature.auth.presentation.landing.components.LandingMobilePortraitLayout
+import dev.gaddal.feature.auth.presentation.landing.components.LandingTabletOrDesktopLayout
 
 @Composable
 fun LandingRoot(
-    viewModel: LandingViewModel = viewModel()
+    onLoginClick: () -> Unit,
+    onGetStartedClick: () -> Unit,
 ) {
-    val state by viewModel.state.collectAsStateWithLifecycle()
-
     LandingScreen(
-        state = state,
-        onAction = viewModel::onAction
+        onAction = { action ->
+            when (action) {
+                LandingAction.Login -> onLoginClick()
+                LandingAction.Register -> onGetStartedClick()
+            }
+        }
     )
 }
 
 @Composable
 fun LandingScreen(
-    state: LandingState,
     onAction: (LandingAction) -> Unit,
 ) {
     NoteMarkScaffold(
@@ -47,17 +46,17 @@ fun LandingScreen(
 
         when (deviceConfiguration) {
             DeviceConfiguration.MOBILE_PORTRAIT -> {
-                MobilePortraitLayout(modifier = Modifier.padding(innerPadding), onAction)
+                LandingMobilePortraitLayout(modifier = Modifier.padding(innerPadding), onAction)
             }
 
             DeviceConfiguration.MOBILE_LANDSCAPE -> {
-                MobileLandscapeLayout(modifier = Modifier.padding(innerPadding), onAction)
+                LandingMobileLandscapeLayout(modifier = Modifier.padding(innerPadding), onAction)
             }
 
             DeviceConfiguration.TABLET_PORTRAIT,
             DeviceConfiguration.TABLET_LANDSCAPE,
             DeviceConfiguration.DESKTOP -> {
-                TabletOrDesktopLayout(modifier = Modifier.padding(innerPadding), onAction)
+                LandingTabletOrDesktopLayout(modifier = Modifier.padding(innerPadding), onAction)
             }
         }
     }
@@ -69,7 +68,6 @@ fun LandingScreen(
 private fun Preview() {
     NoteMarkTheme {
         LandingScreen(
-            state = LandingState(),
             onAction = {}
         )
     }

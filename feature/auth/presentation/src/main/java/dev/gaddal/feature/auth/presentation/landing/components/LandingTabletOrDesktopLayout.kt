@@ -2,11 +2,11 @@ package dev.gaddal.feature.auth.presentation.landing.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
@@ -22,57 +22,61 @@ import androidx.compose.ui.unit.dp
 import dev.gaddal.core.presentation.designsystem.NoteMarkTheme
 import dev.gaddal.core.presentation.designsystem.colors.AppColors
 import dev.gaddal.core.presentation.designsystem.components.NoteMarkScaffold
-import dev.gaddal.core.presentation.ui.PhonePreviewLandscape
+import dev.gaddal.core.presentation.ui.LargeScreenPreview
 import dev.gaddal.feature.auth.presentation.R
 import dev.gaddal.feature.auth.presentation.landing.LandingAction
 
 @Composable
-fun MobileLandscapeLayout(
+fun LandingTabletOrDesktopLayout(
     modifier: Modifier = Modifier,
     onAction: (LandingAction) -> Unit
 ) {
-    Row(
+    Box(
         modifier = modifier
+            .consumeWindowInsets(WindowInsets.navigationBars)
             .fillMaxSize()
-            .consumeWindowInsets(WindowInsets.navigationBars),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+            .background(AppColors.LandingBackground)
     ) {
         // Background image
         Image(
-            painter = painterResource(id = R.drawable.landing_background),
+            painter = painterResource(id = R.drawable.landing_background_big),
             contentDescription = null,
-            modifier = Modifier.weight(3f),
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
 
-        HeaderAndActionButtonsSection(
+        Box(
             modifier = Modifier
-                .weight(4f)
-                .clip(
-                    RoundedCornerShape(
-                        topStart = 15.dp,
-                        bottomStart = 15.dp
+                .align(Alignment.BottomCenter)
+                .padding(horizontal = 48.dp)
+        ) {
+            HeaderAndActionButtonsSection(
+                modifier = Modifier
+                    .clip(shape = RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainerLowest)
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 24.dp
                     )
-                )
-                .background(MaterialTheme.colorScheme.surfaceContainerLowest)
-                .padding(top = 20.dp, bottom = 20.dp, start = 40.dp, end = 60.dp)
-                .consumeWindowInsets(WindowInsets.navigationBars),
-            onAction = onAction
-        )
+                    .consumeWindowInsets(WindowInsets.navigationBars),
+                onAction = onAction
+            )
+        }
     }
 }
 
-@PhonePreviewLandscape
+@LargeScreenPreview
 @Composable
-fun MobileLandscapeLayoutPreview() {
+fun TabletOrDesktopLayoutPreview() {
     NoteMarkTheme {
         NoteMarkScaffold(
             modifier = Modifier.fillMaxSize(),
             containerColor = AppColors.LandingBackground,
             contentWindowInsets = WindowInsets.statusBars
         ) { innerPadding ->
-            MobileLandscapeLayout(
+            LandingTabletOrDesktopLayout(
                 onAction = {}
             )
         }
