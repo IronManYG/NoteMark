@@ -46,15 +46,15 @@ fun LoginTabletOrDesktopLayout(
             .background(MaterialTheme.colorScheme.surfaceContainerLowest)
             .verticalScroll(rememberScrollState())
             .padding(
-                horizontal = 16.dp,
-                vertical = 48.dp
+                horizontal = 48.dp,
+                vertical = 100.dp
             )
             .consumeWindowInsets(WindowInsets.navigationBars),
         verticalArrangement = Arrangement.spacedBy(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         HeaderSection(
-            modifier = Modifier.widthIn(max = 540.dp),
+            modifier = Modifier.widthIn(max = 560.dp),
             title = stringResource(id = R.string.login_header_title),
             subtitle = stringResource(id = R.string.login_header_subtitle),
             alignment = Alignment.CenterHorizontally
@@ -66,7 +66,7 @@ fun LoginTabletOrDesktopLayout(
             onPasswordTextChange = { onAction(LoginAction.OnPasswordChange(it)) },
             onLoginClick = { onAction(LoginAction.Login) },
             onDontHaveAccountClick = { onAction(LoginAction.DontHaveAccount) },
-            modifier = Modifier.widthIn(max = 540.dp),
+            modifier = Modifier.widthIn(max = 560.dp),
             emailSupportingText = state.emailError,
             passwordSupportingText = state.passwordError,
             isPasswordVisible = state.isPasswordVisible,

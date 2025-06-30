@@ -81,7 +81,7 @@ fun LoginFormSection(
 
 @Preview(showBackground = true)
 @Composable
-fun HeaderSectionPreview() {
+fun LoginFormSectionPreview() {
     NoteMarkTheme {
         Box(
             modifier = Modifier.padding(16.dp),
